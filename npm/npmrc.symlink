@@ -1,6 +1,3 @@
-npm set init.author.name "Nikhil Mohan"=true
-npm set init.author.email "nikhil@lightrains.com"=true
-npm set init.author.url "http://nikhilmohan.in"=true
 //registry.npmjs.org/:_authToken=fe62406e-997c-4ec5-b0a4-da568397dcd0
 init.author.email=sibiraj@lightrains.com
 init.author.name=Sibiraj PR
