@@ -27,6 +27,10 @@ sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set v
 # Set Login Window Text
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Tweet me @niksmac_"
 
+# Play iOS charging sound when MagSafe is connected.
+defaults write com.apple.PowerChime ChimeOnAllHardware -bool true && \
+open /System/Library/CoreServices/PowerChime.app
+
 
 # Safari
 # ==============
@@ -80,6 +84,11 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # Auto-Correct Enable (Default)
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool true
 
+# Enable Key Repeat
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Sets a very fast repeat rate, adjust to taste.
+defaults write -g KeyRepeat -int 1
 
 # Terminal & iTerm 2
 # ==============
