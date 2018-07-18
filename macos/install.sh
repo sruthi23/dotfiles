@@ -32,6 +32,13 @@ defaults write com.apple.PowerChime ChimeOnAllHardware -bool true && \
 open /System/Library/CoreServices/PowerChime.app
 
 
+# Mail
+# ===============
+# Show Attachments as Icons
+
+defaults write com.apple.mail DisableInlineAttachmentViewing -bool yes
+
+
 # Safari
 # ==============
 
@@ -77,6 +84,11 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # Disable Creation of Metadata Files on USB Volumes
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
+# Hide all desktop icons because who need 'em'
+defaults write com.apple.finder CreateDesktop -bool false
+
+# Show Status Bar
+defaults write com.apple.finder ShowStatusBar -bool true
 
 # Keyboard
 # ==============
@@ -100,20 +112,30 @@ defaults write com.apple.terminal StringEncodings -array 4
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 
-# Misc
+# Dock
 # ==============
-
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
-# Hide all desktop icons because who need 'em'
-defaults write com.apple.finder CreateDesktop -bool false
-
-# Disable Dashboard
-defaults write com.apple.dashboard mcx-disabled -bool true
 
 # Don’t show Dashboard as a Space
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
+
+# Set icon size
+defaults write com.apple.dock tilesize -int 45
+
+# Lock the Dock Size
+defaults write com.apple.Dock size-immutable -bool yes && killall Dock
+
+
+# Misc
+# ==============
+
+# Increase sound quality for Bluetooth headphones/headsets
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Deactivate and Stop the Remote Management Service
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -deactivate -stop

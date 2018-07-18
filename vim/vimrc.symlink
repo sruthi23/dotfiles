@@ -44,6 +44,8 @@ set regexpengine=1
 set autoread
 set acd
 
+set cursorline          " highlight current line"
+
 let mapleader = "\<Space>" " Map leader
 nnoremap <leader><leader> <C-^> " Switch buffers
 
@@ -60,11 +62,15 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'sjl/gundo.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'isRuslan/vim-es6'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'raimondi/delimitmate'
 Plug 'wincent/command-t'
 Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown'] }
 
 call plug#end()
 
@@ -127,3 +133,6 @@ let g:lightline = {
   \   'readonly': '%{&readonly?"⭤":""}',
   \ }
   \ }
+
+" open ag.vim
+nnoremap <leader>a :Ag

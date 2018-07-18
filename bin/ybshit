@@ -1,0 +1,5 @@
+#!/bin/sh
+
+loadnvm
+
+nvm use v6 && yarn add "$1" && cd node_modules/webpack && rm -rf node_modules && yarn install && yarn add uglify-js@git://github.com/mishoo/UglifyJS2#harmony-v2.8.22 && cd .. && cd ..

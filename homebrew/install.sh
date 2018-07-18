@@ -21,12 +21,20 @@ then
 
 fi
 
-# Install homebrew packages
-brew install grc coreutils spark tmux youtube-dl the_silver_searcher vim node wget git tree elm tor yarn
+# Install the correct homebrew for each OS type
+if test "$(uname)" = "Darwin"
+then
+  # Install homebrew packages
+  brew install zsh grc coreutils spark tmux youtube-dl the_silver_searcher vim node wget git tree tor yarn highlight pre-commit
+  # Tap cask
+  brew tap caskroom/cask
+  # Install cask items
+  brew cask install flux google-chrome transmission vlc gpg-suite
+elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
+then
+  # Install homebrew packages
+  brew install grc spark tmux youtube-dl the_silver_searcher vim node tree tor pre-commit
+fi
 
-# Tap cask
-brew tap caskroom/cask
 
-# Install cask items
-brew cask install flux
 exit 0
