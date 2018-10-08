@@ -25,11 +25,11 @@ fi
 if test "$(uname)" = "Darwin"
 then
   # Install homebrew packages
-  brew install zsh grc coreutils spark tmux youtube-dl the_silver_searcher vim node wget git tree tor yarn highlight pre-commit
+  brew install zsh zsh-completions grc coreutils spark tmux youtube-dl the_silver_searcher vim node wget git tree tor yarn highlight pre-commit
   # Tap cask
   brew tap caskroom/cask
   # Install cask items
-  brew cask install flux google-chrome transmission vlc gpg-suite
+  brew cask install flux transmission vlc gpg-suite iterm2 brave
 elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
 then
   # Install homebrew packages
